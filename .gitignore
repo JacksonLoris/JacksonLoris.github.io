@@ -1,0 +1,8 @@
+.DS_Store
+Thumbs.db
+db.json
+*.log
+blogs/node_modules/
+node_modules/
+public/
+.deploy*/
