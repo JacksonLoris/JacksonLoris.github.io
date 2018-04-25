@@ -1,0 +1,22 @@
+language: node_js
+node_js: stable
+  deploy:
+  provider: pages
+  skip-cleanup: true
+  github-token: $GITHUB_TOKEN  # Set in travis-ci.org dashboard, marked secure
+  keep-history: true
+  on:
+    branch: master
+before_install: 
+  - npm install hexo -g
+  - npm install hexo-cli -g
+install:
+  - npm install
+before_script:
+- git config --global user.name "JacksonLoris"
+- git config --global user.email "JacksonLoris@163.com"
+script:
+  - hexo clean
+  - hexo generate
+after_success:
+- hexo deploy -g
